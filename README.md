@@ -1,2 +1,2 @@
 # Runner
-This is a video game in the unity platform.
+This is a video game made in unity platform.
