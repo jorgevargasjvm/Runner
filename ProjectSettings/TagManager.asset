@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - SilverCoin
   - BlueGem
+  - BossLimit
   layers:
   - Default
   - TransparentFX

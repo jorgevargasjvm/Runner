@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     private Vector3 velocity = new Vector3(1, 0, 0);
-    private float Speed = 4.5f;
+    public float Speed = 4.5f;
 
     private bool grounded = false;
     private bool isJumping = false;
@@ -59,6 +59,10 @@ public class PlayerBehavior : MonoBehaviour
            
         }
         
+        if(this.transform.position.y <= -10f)
+        {
+            KillPlayer();
+        }
         
        // Debug.Log(myRB.gravityScale);
     }
@@ -142,9 +146,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         if(collision.transform.tag == "Enemy")
         {
-            gamemanager.playerDead = true;
-            gamemanager.playerLives -= 1;
-            Destroy(this.gameObject);
+            KillPlayer();
         }
 
         if (collision.transform.tag == "SilverCoin")
@@ -158,6 +160,13 @@ public class PlayerBehavior : MonoBehaviour
         }
 
 
+    }
+
+    private void KillPlayer()
+    {
+        gamemanager.playerDead = true;
+        gamemanager.playerLives -= 1;
+        Destroy(this.gameObject);
     }
 
     
